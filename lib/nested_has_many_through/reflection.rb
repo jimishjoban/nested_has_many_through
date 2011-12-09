@@ -6,7 +6,7 @@ module NestedHasManyThrough
 
     def check_validity_with_nested_has_many_through!
       check_validity_without_nested_has_many_through!
-    rescue ActiveRecord::HasManyThroughSourceAssociationMacroError => e
+    rescue Exception => e
       # now we permit has many through to a :though source
       raise e unless source_reflection.options[:through]
     end
